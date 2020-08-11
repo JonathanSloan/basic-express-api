@@ -1,2 +1,3 @@
-# basic-express-api
-A basic ExpressJS API with Authentication
+# express-rest-api
+
+An ExpressJS REST API with Authentication
