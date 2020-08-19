@@ -11,8 +11,11 @@ const port = process.env.PORT || 3000;
 // express settings
 app.use(bodyParser.urlencoded({ extended: false })); // parse appliation/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
-app.use(cors({ credentials: true, origin: process.env.CORS_ORIGIN })); // parse application/json
 app.use(cookieParser());
+app.use(cors({ credentials: true, origin: process.env.CORS_ORIGIN })); // parse application/json
+
+// require passport auth
+require("./auth/auth");
 
 // import routes
 const routes = require("./routes/main");
