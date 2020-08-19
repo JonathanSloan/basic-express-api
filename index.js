@@ -1,9 +1,10 @@
+require("dotenv").config();
+
 const express = require("express");
-// const { request, response } = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // used to parse body
 app.use(bodyParser.urlencoded({ extended: false })); // parse appliation/x-www-form-urlencoded
@@ -30,7 +31,7 @@ app.use((error, request, response, next) => {
     .json({ error: error.message, status: 500 });
 });
 
-// when app is ready
+// app is ready
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
