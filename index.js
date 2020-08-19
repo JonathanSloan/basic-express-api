@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false })); // parse appliation/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 app.use(cors({ credentials: true, origin: process.env.CORS_ORIGIN })); // parse application/json
+app.use(cookieParser());
 
 // import routes
 const routes = require("./routes/main");
